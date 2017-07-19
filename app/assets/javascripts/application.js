@@ -16,3 +16,15 @@
 //= require bootstrap
 //= require_tree .
 
+//javascript for carousel
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $('.carousel').carousel({
+        interval: 8000
+
+    })
+});
+
+</script>
+    //carousel script over

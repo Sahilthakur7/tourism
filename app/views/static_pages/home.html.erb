@@ -25,14 +25,93 @@
     </a>
 </div>
 
+<section class="box special features">
+    <div class="features-row">
+        <section>
+            <%= link_to '#', :class => 'button white' do %>
+                <span class="icon major fa-bolt accent2"></span>
+            <%end%>
+            <h3>Find The Best Spots</h3>
+            <p>Find the most famous and the most rare tourism spots in the country. Venture along alone or take a ride with your friends.</p>
+        </section>
+        <section>
+            <%= link_to '#', :class => 'button white' do %>
+                <span class="icon major fa-area-chart accent3"></span>
+            <%end%>
+            <h3>Never Get Lost</h3>
+            <p>Always stay connected to google maps whenever you are trying to reach your destination. Plus tips from people who have already visited the place !</p>
+        </section>
+    </div>
+    <div class="features-row">
+        <section>
 
-<script type="text/javascript">
+            <%= link_to '#', :class => 'button white' do %>
+                <span class="icon major fa-cloud accent4"></span>
+            <% end %>
+            <h3>Don't Miss A Thing</h3>
+            <p>Other tourists who missed and regretted are here to tell you the things they should have or should not have seen to make your trip your money and time's worth.</p>
+        </section>
+        <section>
+            <%= link_to '#', :class => 'button white' do %>
+                <span class="icon major fa-lock accent5"></span>
+            <%end%>
+            <h3>Add Your Story</h3>
+            <p>Join all the other members and add your stories to help others visit and enjoy the places that you already have!</p>
+        </section>
+    </div>
+</section>
 
-$(document).ready(function(){
-    $('.carousel').carousel({
-        interval: 8000
+<div class="card">
+    <%= image_tag "kullu.jpg", class:"card-img-top" ,alt: "kullu"%>
+    <div class="card-block">
+        <p class="card-text"><center>Explore your inner self in the mountains of <%= link_to "Kullu-Manali","#"%></center></p>
 
-    })
-});
+    </div>
+</div>
 
-</script>
+
+<div class="card">
+    <%= image_tag "andaman.jpeg", class:"card-img-top adjust" ,alt: "kullu"%>
+    <div class="card-block">
+        <p class="card-text"><center>Or let yourself lose in the beauty of the <%= link_to "Andamans","#"%></center></p>
+
+    </div>
+</div>
+
+	<!-- CTA -->
+				<section id="cta">
+
+					<h2>Sign up for access</h2>
+					<p>Sign up to see all the features of the application that you can't as a guest.</p>
+
+					<form>
+						<div class="row uniform 50%">
+							<div class="8u 12u(mobilep)">
+								<input type="email" name="email" id="email" placeholder="Email Address" />
+							</div>
+							<div class="4u 12u(mobilep)">
+								<input type="submit" value="Sign Up" class="fit" />
+							</div>
+						</div>
+					</form>
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+
