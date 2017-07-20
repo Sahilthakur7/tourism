@@ -1,0 +1,10 @@
+<% flash.each do |key,value|%>
+    <div class="<%= flash_class(key)%>">
+        <a href="#" data-dismiss="alert" class="clone"x></a>
+        <ul>
+            <li>
+                <%=value%>
+            </li>
+        </ul>
+    </div>
+<%end%>

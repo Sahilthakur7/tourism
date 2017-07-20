@@ -7,6 +7,9 @@
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <%=image_tag "Tourism1.jpg", class: "d-block img-fluid imgcar"%>
+            <div class="tbox">
+                Lukaku
+            </div>
         </div>
         <div class="carousel-item">
             <%=image_tag "Tourism2.jpg", class: "d-block img-fluid imgcar"%>
@@ -78,39 +81,24 @@
     </div>
 </div>
 
-	<!-- CTA -->
-				<section id="cta">
+<!-- CTA -->
+<% unless user_signed_in?%>
+    <section id="cta">
+        <h2>Already have an account?</h2>
+        <p>Login quickly to get into the main site.</p>
 
-					<h2>Sign up for access</h2>
-					<p>Sign up to see all the features of the application that you can't as a guest.</p>
+        <form>
+            <div class="row uniform 50%">
+                <div class="8u 12u(mobilep)">
+                    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" id="email" placeholder="Email Address" />
+                </div>
+                <div class="4u 12u(mobilep)">
+                    <input type="submit" value="Login" class="fit" />
+                </div>
+            </div>
+        </form>
 
-					<form>
-						<div class="row uniform 50%">
-							<div class="8u 12u(mobilep)">
-								<input type="email" name="email" id="email" placeholder="Email Address" />
-							</div>
-							<div class="4u 12u(mobilep)">
-								<input type="submit" value="Sign Up" class="fit" />
-							</div>
-						</div>
-					</form>
 
-				</section>
+    </section>
 
-    <footer id="myFooter">
-        <div class="container">
-            <ul>
-                <li><a href="#">Company Information</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Terms of service</a></li>
-            </ul>
-        <p class="footer-copyright">© 2017 Copyright Text</p>
-        </div>
-        <div class="footer-social">
-            <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
-            <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
-        </div>
-    </footer>
- 
+<%end%> 
