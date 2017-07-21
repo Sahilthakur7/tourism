@@ -25,6 +25,12 @@
                     <% unless user_signed_in?%>
                         <%= link_to "SignUp", new_user_registration_path,class: "nav-link"%>
                     <%end%>
+                </li>
+                <li class="nav-item active">
+                    <% if user_signed_in?%>
+                        <%= link_to "Profile",user_path(current_user),class: "nav-link"%>
+                    <%end%>
+                </li>
     </div>
         </ul>
         </div>
