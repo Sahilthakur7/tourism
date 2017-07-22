@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations"}
   root to: 'static_pages#home'
-  resources :users
+  resources :users do
+      resource :info,only: [:show,:new,:create]
+      resource :settings, only: [:show,:new,:create]
+  end
 
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
