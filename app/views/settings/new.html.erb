@@ -1,9 +1,9 @@
 <div class="border-form-div">
     <%= simple_form_for [@user,@setting] do |f|%>
-        <%=f.input :info_city%>
-        <%=f.input :info_dob%>
-        <%=f.input :info_interests%>
-        <%=f.input :info_fb%>
+        <%=f.input :info_city, label: "City"%>
+        <%=f.input :info_dob, label: "Date of birth(dd/mm/yyyy)"%>
+        <%=f.input :info_interests, label: "Interests"%>
+        <%=f.input :info_fb, label: "FB(fb.com/username)"%>
         <%=f.submit "Submit", class: "btn btn-success"%>
     <%end%>
 </div>

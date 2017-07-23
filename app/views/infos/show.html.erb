@@ -1,0 +1,30 @@
+<h1><center><%= @user.name%></center></h1>
+</br>
+<div class="container">
+    <div class="col md-6">
+        <div>
+            <h4> <strong>City:</strong><%=@info.city%></h4>
+        </div>
+        <div>
+            <h4><strong>DOB:</strong><%=@info.dob%></h4>
+        </div>
+        <div>
+            <h4> <strong>Interests:</strong><%=@info.interests%></h4>
+        </div>
+        <div>
+            <h4> <strong>FB:</strong><a href= "http://<%= @info.fb%>"><%=@info.fb%></a></h4>
+        </div>
+    </div>
+    </br>
+    </br>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Travel Score</h1>
+            <ul>
+                <li>Travel Stars:</li>
+                <li>Travel Help:</li>
+                <li>Friends:</li>
+                </ul>
+            </div>
+        </div>
+</div>

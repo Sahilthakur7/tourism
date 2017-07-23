@@ -8,7 +8,7 @@
                 <%= image_tag ("pic01.jpg")%>
             </span>
             <header class="major">
-                <h3><a href="landing.html" class="link">Info.</a></h3>
+                <h3><%= link_to "Info", user_info_path(@user),class: "link"%></h3>
                 <p>See user's info.</p>
             </header>
         </article>
