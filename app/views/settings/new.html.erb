@@ -1,3 +1,6 @@
+NOTE: If you have already filled in your info, then fill in only the spaces you want to update.
+</br>
+</br>
 <div class="border-form-div">
     <%= simple_form_for [@user,@setting] do |f|%>
         <%=f.input :info_city, label: "City"%>
@@ -7,4 +10,3 @@
         <%=f.submit "Submit", class: "btn btn-success"%>
     <%end%>
 </div>
-<%= @user.name%>
