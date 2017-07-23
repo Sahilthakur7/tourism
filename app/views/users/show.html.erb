@@ -17,7 +17,7 @@
                 <%= image_tag ("pic01.jpg")%>
             </span>
             <header class="major">
-                <h3><a href="landing.html" class="link">Photos</a></h3>
+                <h3><%= link_to "Photos", user_photos_path(@user),class:"link"%></h3>
                 <p>See user's uploaded photos.</p>
             </header>
         </article>
