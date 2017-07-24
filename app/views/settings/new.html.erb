@@ -1,4 +1,5 @@
-NOTE: If you have already filled in your info, then fill in only the spaces you want to update.
+NOTE: If you have already filled in your info, then fill in only the spaces you want to update.</br>
+NOTE 2: Please fill all of the fields in the proper format.
 </br>
 </br>
 <div class="border-form-div">
@@ -8,5 +9,12 @@ NOTE: If you have already filled in your info, then fill in only the spaces you 
         <%=f.input :info_interests, label: "Interests"%>
         <%=f.input :info_fb, label: "FB(fb.com/username)"%>
         <%=f.submit "Submit", class: "btn btn-success"%>
+    <%end%>
+</div>
+<div>
+    <% if @setting.errors.any?%>
+        <% @setting.errors.full_messages.each do |msg|%>
+            <li><%= message%></li>
+        <%end%>
     <%end%>
 </div>

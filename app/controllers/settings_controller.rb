@@ -11,9 +11,9 @@ class SettingsController < ApplicationController
     def create
         @setting = Setting.new(setting_params)
         if @setting.save(@info)
-            redirect_to root_path #change me to info_path
+            redirect_to user_info_path(current_user) #change me to info_path
         else
-            render 'show'
+            render 'new'
         end
 
     end
@@ -27,7 +27,20 @@ class SettingsController < ApplicationController
 
     def set_info
         @user = User.find(params[:user_id])
-        @info = @user.info
+        @info = user_info 
+    end
+
+    def user_info
+        if @user.info.present?
+            @user.info
+        else
+            assign_new_info
+        end
+    end
+
+    def assign_new_info
+        @user.info = Info.new
+
     end
 
     def setting_params
