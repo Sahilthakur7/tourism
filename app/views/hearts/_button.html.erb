@@ -1,0 +1,5 @@
+<% if current_user.heart?(photo)%>
+    <%= button_to "Unheart",unheart_path(photo_id: photo.id),remote: true, method: :delete%>
+<%else%>
+    <%= button_to "Heart", unheart_path(photo_id: photo.id),remote: true%>
+<%end%>

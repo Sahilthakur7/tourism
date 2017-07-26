@@ -1,0 +1,50 @@
+
+<div class="posts-wrapper row">
+    <% @photos.each do |photo| %>
+        <div class="post">
+            <div class="post-head">
+                <div class="thumb-img"></div>
+                <div class="user-name">
+                    <%= photo.user.name %>
+                </div>
+            </div>
+            <div class="image center-block">
+                <%= link_to (image_tag photo.pic.url(:medium), class:'img-responsive'), user_photo_path(@user,photo) %>
+            </div>
+            <div class="post-bottom">
+                <div class="caption">
+                    <%= photo.caption %>
+                </div>
+                <% if photo.comments %>
+                    <% photo.comments.each do |comment| %>
+                        <div class="comment">
+                            <div class="user-name">
+                                <%= comment.user.name %>
+                            </div>
+                            <div class="comment-content">
+                                <%= comment.content %>
+                            </div>
+                            <% if comment.user == current_user %>
+                                <%= link_to post_comment_path(photo, comment), method: :delete, data: { confirm: "Are you sure?" } do%>
+                                    <span class="glyphicon glyphicon-remove delete-comment" aria-hidden="true"></span>
+                                <%end%>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+                <div class="comment-like-form row">
+                    <div class="like-button col-sm-1">
+                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+                    </div>
+                    <div class="comment-form col-sm-11">
+                        <%= form_for [@user,photo,photo.comments.new] do |f| %>
+                            <center> <%= f.text_field :content, placeholder: 'Add a comment...' %></center>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+hskdf

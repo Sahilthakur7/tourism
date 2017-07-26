@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
 
   has_one :info
   has_many :photos
+  has_many :comments,dependent: :destroy
       
 end

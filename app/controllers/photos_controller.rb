@@ -1,9 +1,14 @@
 class PhotosController < ApplicationController
-    before_action :set_user
+    before_action :set_user, :authenticate_user!
+    before_action :owned_post,only: [:edit,:update,:destroy]
     def index
         @photo = Photo.new
         @photos = Photo.order('created_at').where(user_id: @user.id)
 
+    end
+
+    def show
+        @photo = Photo.find(params[:id])
     end
 
     def new
@@ -20,6 +25,10 @@ class PhotosController < ApplicationController
         end
     end
 
+    def edit
+        @photo = Photo.find(params[:id])
+    end
+
     private
 
     def set_user
@@ -28,5 +37,12 @@ class PhotosController < ApplicationController
 
     def photo_params
         params.require(:photo).permit(:pic,:caption)
+    end
+
+    def owned_post
+        unless current_user == @photo.user
+            flash[:alert] = "That photo doesnt belong to you"
+            redirect_to root_path
+        end
     end
 end

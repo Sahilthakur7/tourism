@@ -1,0 +1,15 @@
+</br>
+<div>
+<center><%= image_tag @photo.pic.url(:medium) %></center>
+</br>
+<center><%= @photo.caption%></center>
+</div>
+</br>
+<div>
+<% if @photo.user.id == current_user.id%>
+    <div class="text-center edit-links">
+        <%=link_to "Cancel", user_photos_path(@user)%>
+        |
+        <%=link_to "Edit photo", edit_user_photo_path(@user,@photo)%>
+<%end%>
+</div>
