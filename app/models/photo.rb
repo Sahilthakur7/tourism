@@ -4,6 +4,7 @@ class Photo < ActiveRecord::Base
   validates_attachment_content_type :pic, :content_type => /\Aimage\/.*\Z/
 
   has_many :comments,dependent: :destroy
+  default_scope -> {order(created_at: :desc)}
 
   def set_user(user)
       self.user = user

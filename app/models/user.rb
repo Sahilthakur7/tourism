@@ -12,4 +12,7 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :comments,dependent: :destroy
       
+  def self.search(search)
+      where("name LIKE ? or name LIKE ?", "%#{search}%", "%#{search}%")
+  end
 end

@@ -5,7 +5,13 @@
             <div class="post-head">
                 <div class="thumb-img"></div>
                 <div class="user-name">
-                    <%= photo.user.name %>
+                    <%= link_to photo.user.name, user_path(photo.user) %>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <%= (Date.current - photo.created_at.to_date).to_i%>days ago
                 </div>
             </div>
             <div class="image center-block">
