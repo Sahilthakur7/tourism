@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
-    before_action :set_post
+    before_action :set_photo
     def show
 
     end
 
     def create
-        @comment = @post.comments.build(comment_params)
+        @comment = @photo.comments.build(comment_params)
         @comment.user_id = current_user.id
 
         if @comment.save
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = @post.comments.find(params[:id])
+        @comment = @photo.comments.find(params[:id])
 
         @comment.destroy
         flash[:succes] = "COmment deleted."
@@ -35,8 +35,8 @@ class CommentsController < ApplicationController
         params.require(:comment).permit(:content)
     end
 
-    def set_post
-        @post = Post.find(params[:post_id])
+    def set_photo
+        @photo = Photo.find(params[:photo_id])
     end
 
 end

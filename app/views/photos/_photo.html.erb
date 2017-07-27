@@ -15,23 +15,22 @@
                 <div class="caption">
                     <%= photo.caption %>
                 </div>
+                <hr>
                 <% if photo.comments %>
                     <% photo.comments.each do |comment| %>
                         <div class="comment">
                             <div class="user-name">
-                                <%= comment.user.name %>
-                            </div>
-                            <div class="comment-content">
-                                <%= comment.content %>
+                                <%=link_to comment.user.name,user_path(comment.user) %>: <%= comment.content%>
                             </div>
                             <% if comment.user == current_user %>
-                                <%= link_to post_comment_path(photo, comment), method: :delete, data: { confirm: "Are you sure?" } do%>
+                                <%= link_to user_photo_comment_path(@user,photo, comment), method: :delete, data: { confirm: "Are you sure?" } do%>
                                     <span class="glyphicon glyphicon-remove delete-comment" aria-hidden="true"></span>
                                 <%end%>
                             <% end %>
                         </div>
                     <% end %>
                 <% end %>
+                </br>
                 <div class="comment-like-form row">
                     <div class="like-button col-sm-1">
                         <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
