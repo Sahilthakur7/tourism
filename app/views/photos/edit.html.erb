@@ -1,0 +1,9 @@
+<%= simple_form_for [@user,@photo] do |f|%>
+    <%= f.input :caption %>
+    <%= f.submit class: "btn btn-default"%>
+<%end%>
+
+<br>
+
+<span><%= button_to "Delete", user_photo_path(@user,@photo), method: :delete, class: "btn btn-danger"%><span>
+

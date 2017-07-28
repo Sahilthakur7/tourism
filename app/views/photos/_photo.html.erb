@@ -36,10 +36,12 @@
                         </div>
                     <% end %>
                 <% end %>
-                </br>
                 <div class="comment-like-form row">
                     <div class="like-button col-sm-1">
-                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+                        <button class="btn btn-default aria-label="Left Align">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true">
+                        </button>
+                        </button>
                     </div>
                     <div class="comment-form col-sm-11">
                         <%= form_for [@user,photo,photo.comments.new] do |f| %>
@@ -52,4 +54,4 @@
     <% end %>
 </div>
 
-hskdf
+

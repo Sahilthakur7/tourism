@@ -29,6 +29,20 @@ class PhotosController < ApplicationController
         @photo = Photo.find(params[:id])
     end
 
+    def update
+        @photo = Photo.find(params[:id])
+        @photo.update(photo_params) 
+        redirect_to user_photo_path(@user,@photo)
+    end
+
+    def destroy
+        @photo = Photo.find(params[:id])
+        @photo.destroy!
+        redirect_to user_photos_path(@user,@photo)
+    end
+
+
+
     private
 
     def set_user
@@ -40,6 +54,7 @@ class PhotosController < ApplicationController
     end
 
     def owned_post
+        @photo = Photo.find(params[:id])
         unless current_user == @photo.user
             flash[:alert] = "That photo doesnt belong to you"
             redirect_to root_path
