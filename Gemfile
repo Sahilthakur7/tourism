@@ -23,6 +23,10 @@ gem 'turbolinks'
 gem 'devise' , "~> 3.4.1"
 gem 'paperclip'
 
+source 'https://rails-assets.org' do
+    gem 'rails-assets-tether' , '>=1.3.3'
+end
+
 gem 'owlcarousel-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

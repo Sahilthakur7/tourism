@@ -39,8 +39,7 @@ class SettingsController < ApplicationController
     end
 
     def assign_new_info
-        @user.info = Info.new
-
+        @user.info = Info.new(city: 'nil')
     end
 
     def setting_params
