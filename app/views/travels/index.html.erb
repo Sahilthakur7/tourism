@@ -1,0 +1,30 @@
+</br>
+<div>
+    <% if current_user == @user%>
+        &nbsp;&nbsp;&nbsp;<%= link_to "New Travel", new_user_travel_path(@user), class: 'btn btn-success'%>
+<%end%>
+</div>
+</br>
+</br>
+<hr>
+<div class="container trav">
+    <div class="row">
+        <% if @travels.any?%>
+            <% @travels.each_with_index do |travel|%>
+                <ul>
+                    <li>    <div class="card">
+                            <div class="card-img-top" >
+                                <%= link_to (image_tag travel.featured_image.url(:full)), user_travel_path(@user,travel)%>
+                            </div>
+                            <div class="card-block">
+                                <center> <h1 class="lead"> <%= link_to travel.title, user_travel_path(@user,travel)%> </h1></center>
+                            </div>
+                            </br>
+                            </br>
+                    </li>
+                </ul>
+            <%end%>
+        <%end%>
+                        </div>
+    </div>
+</div>

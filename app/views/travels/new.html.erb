@@ -1,0 +1,7 @@
+<%= simple_form_for([@user,@travel]) do |f|%>
+    <%=f.input :title%>
+    <%=f.input :content, rows: 10%>
+    <%=f.file_field :featured_image%>
+    <%=f.submit "Share Travel!", class: "btn btn-success"%>
+<%end%>
+

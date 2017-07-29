@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_one :info
   has_many :photos
   has_many :comments,dependent: :destroy
+  has_many :travels
       
   def self.search(search)
       where("name LIKE ? or name LIKE ?", "%#{search}%", "%#{search}%")
