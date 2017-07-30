@@ -3,3 +3,51 @@
 <hr>
 
 <%= @travel.content %>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="page-header">Comments</h2>
+            <section class="comment-list">
+                <% if @travel.comments.any?%>
+                    <% @travel.comments.each do |comment| %>
+                        <article class="row">
+                            <div class="col-md-2 col-sm-2 hidden-xs">
+                                <figure class="thumbnail">
+                                    <figcaption class="text-center"><%=link_to comment.user.name, user_path(comment.user)%></figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-10 col-sm-10">
+                                <div class="panel panel-default arrow left">
+                                    <div class="panel-body">
+                                        <header class="text-left">
+                                            <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= comment.created_at.to_date%></time>
+                                        </header>
+                                        <div class="comment-post">
+                                            <p><%= comment.content%></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    <%end%>
+                <%end%>
+                <div class="container">
+                    <div class="row">
+                        <div class="col md-6 sm-6">
+
+                            <%= form_for([@user,@travel,@comment]) do |f|%>
+                                <div class="from-group">
+                                    <%= f.label :comment%>
+                                    <%= f.text_area :content, class: "form-control", placeholder: "Write a comment.."%>
+                                </div>
+                                <div>
+                                    <%=f.submit "Add comment", class: "btn btn-success"%>
+                                </div>
+                            <%end%>
+                        </div>
+                    </div>
+                </div>
+
+                >
+

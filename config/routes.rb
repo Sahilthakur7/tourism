@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       resources :photos do
           resources :comments
       end
-      resources :travels
+      resources :travels do
+          resources :comments
+      end
   end
 
   

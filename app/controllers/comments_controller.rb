@@ -1,11 +1,16 @@
 class CommentsController < ApplicationController
-    before_action :set_photo
     def show
 
     end
 
     def create
-        @comment = @photo.comments.build(comment_params)
+        if request.original_fullpath.include?("photos")
+            @photo = Photo.find(params[:photo_id])
+            @comment = @photo.comments.build(comment_params)
+        else
+            @travel = Travel.find(params[:travel_id])
+            @comment = @travel.comments.build(comment_params)
+        end
         @comment.user_id = current_user.id
 
         if @comment.save

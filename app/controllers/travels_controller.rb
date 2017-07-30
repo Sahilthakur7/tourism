@@ -22,6 +22,7 @@ class TravelsController < ApplicationController
 
     def show
         @travel = Travel.find(params[:id]) 
+        @comment = Comment.new
     end
 
 
