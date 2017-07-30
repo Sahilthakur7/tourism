@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730062830) do
+ActiveRecord::Schema.define(version: 20170730073351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20170730062830) do
   add_index "comments", ["photo_id"], name: "index_comments_on_photo_id", using: :btree
   add_index "comments", ["travel_id"], name: "index_comments_on_travel_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "friend1_id"
+    t.integer  "friend2_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "confirmed"
+  end
+
+  add_index "friendships", ["friend1_id", "friend2_id"], name: "index_friendships_on_friend1_id_and_friend2_id", unique: true, using: :btree
+  add_index "friendships", ["friend1_id"], name: "index_friendships_on_friend1_id", using: :btree
+  add_index "friendships", ["friend2_id"], name: "index_friendships_on_friend2_id", using: :btree
 
   create_table "hearts", force: :cascade do |t|
     t.integer  "photo_id"

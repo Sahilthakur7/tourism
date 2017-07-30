@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :travels do
           resources :comments
       end
+
+  resources :friendships
   end
 
   

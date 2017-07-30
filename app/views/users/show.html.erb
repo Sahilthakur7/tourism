@@ -70,4 +70,8 @@
 
 <div class="propic">
     <center><%= image_tag @user.avatar.url(:medium)%></center>
+    </br>
+    <%unless current_user == @user%>
+        <center><%=button_to "Add Friend", user_friendships_path(current_user), method: :post, class: "btn btn-info" %></center>
+    <%end%>
 </div>
