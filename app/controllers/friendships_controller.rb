@@ -4,7 +4,7 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-        @user = User.find(params[:id])
+        @user = User.find(params[:user_id])
         @friendship = Friendship.new
         @friendship.friend1_id = current_user.id
         @friendship.friend2_id = @user.id
