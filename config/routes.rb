@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'acceptions/create'
+
   devise_for :users, controllers: { registrations: "registrations"}
   root to: 'static_pages#home'
   resources :users do
@@ -12,7 +14,10 @@ Rails.application.routes.draw do
       end
       resource :contacts
 
-  resources :friendships
+  resources :friendships do
+      resource :acceptance , only: [:create, :destroy]
+  end
+  resource :friends, only: [:show]
   end
 
   

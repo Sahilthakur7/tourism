@@ -1,5 +1,10 @@
 <h2>Welcome to your contacts page:</h2>
-
-<% @friend_requests.each do |req|%>
-    <%= req.friend1.name%>
+<hr>
+<h2>Friend Requests Received:</h2>
+<% @friend_requests.each_with_index do |req,index|%>
+    <%= index + 1%>.<%= link_to req.friend1.name , user_path(req.friend1)%>
+    <div id="buttons">
+        <%= button_to "Accept", user_friendship_acceptance_path(current_user,req) ,class: 'btn btn-success btn-sm accept' ,id: "accept"%>
+        <%= button_to "Reject", user_friendship_acceptance_path(current_user,req) , method: :delete, class: 'btn btn-danger btn-sm reject', id: "reject"%>
+    </div>
 <%end%>

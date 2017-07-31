@@ -1,0 +1,7 @@
+<% @friendships.each do |friendship|%>
+    <% if friendship.friend1 == current_user %>
+        <%= friendship.friend2.name%>
+    <%else%>
+        <%= friendship.friend1.name%>
+    <%end%>
+<%end%>

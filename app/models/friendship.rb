@@ -4,4 +4,8 @@ class Friendship < ActiveRecord::Base
 
     validates :friend1_id , presence: true
     validates :friend2_id , presence: true
+
+    def accept!
+        self.update_attributes(confirmed: true)
+    end
 end

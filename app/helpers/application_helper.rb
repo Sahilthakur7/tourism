@@ -21,4 +21,13 @@ module ApplicationHelper
     def devise_mapping
         @devise_mapping || Devise.mappings[:user]
     end
+
+    def is_friend?(user)
+        @friendship = Friendship.where("friend1_id = ? AND friend2_id =? OR friend1_id =? AND friend2_id = ?",current_user.id,user.id,user.id,current_user.id)
+        if @friendship
+            return true
+        else
+            return false
+        end
+    end
 end
