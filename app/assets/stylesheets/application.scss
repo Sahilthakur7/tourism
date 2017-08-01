@@ -926,4 +926,22 @@
     vertical-align: top;
 }
 
+.friends-panel {
+    background-color: #C0C0C0;
+}
 
+.friends-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.friends-list .friends-item {
+    display: inline;
+    float:left;
+    padding-right: 20px;
+}
+
+.friends-wrapper {
+    background-color: black;
+}

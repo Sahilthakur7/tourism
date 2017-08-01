@@ -2,10 +2,10 @@ module ApplicationHelper
 
     def flash_class(level)
         case level
-            when 'notice' then "alert alert-info"
-            when 'success' then "alert alert-success"
-            when 'error' then "alert alert-error"
-            when 'alert' then "alert alert-error"
+        when 'notice' then "alert alert-info"
+        when 'success' then "alert alert-success"
+        when 'error' then "alert alert-error"
+        when 'alert' then "alert alert-error"
 
         end
     end
@@ -23,11 +23,22 @@ module ApplicationHelper
     end
 
     def is_friend?(user)
-        @friendship = Friendship.where("friend1_id = ? AND friend2_id =? OR friend1_id =? AND friend2_id = ?",current_user.id,user.id,user.id,current_user.id)
+
+        @friendship = Friendship.where("friend1_id = ? AND friend2_id = ? OR friend1_id = ? AND friend2_id = ?",current_user.id,user.id,user.id,current_user.id).first
+
         if @friendship
             return true
         else
             return false
         end
+
+    end 
+
+    def friend(user)
+                        
+        @friendship = Friendship.where("friend1_id = ? AND friend2_id = ? OR friend1_id = ? AND friend2_id = ?",current_user.id,user.id,user.id,current_user.id).first
+        @friendship.friend2
     end
+        
+
 end
