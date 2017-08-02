@@ -1,11 +1,17 @@
 class SettingsController < ApplicationController
     before_action :set_user, :set_info
+    before_action :confirm_user
     def show
         @setting = Setting.new    
     end
 
     def new
+        if current_user != @user
+            flash[:notice] = "Not allowed to do that"
+            redirect_to root_path
+        else
         @setting = Setting.new
+        end
     end
 
     def create
@@ -46,4 +52,11 @@ class SettingsController < ApplicationController
         params.require(:setting).permit(:info_fb,:info_interests,:info_dob,:info_city)
     end
 
+    def confirm_user
+        if current_user != @user
+            flash[:notice] = "Not allowed to do that"
+            redirect_to root_path
+        else
+        end
+    end
 end

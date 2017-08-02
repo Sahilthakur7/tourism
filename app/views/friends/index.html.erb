@@ -4,7 +4,7 @@
         <div class="col-md-6">
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                    <%= form_tag(users_path, method: :get) do%>
+                    <%= form_tag(user_friends_path(@user), method: :get) do%>
                         <%= text_field_tag :search,params[:search],placeholder: "Search users"%>
                         <%=submit_tag "Search",class: "btn"%>
                     <%end%>
@@ -14,6 +14,7 @@
     </div>
 </div>
 <div class="friends-panel">
+
     <h2>Here is the list of all the friends of <%= link_to @user.name, user_path(@user)%>:</h2>
 </div>
 <hr>

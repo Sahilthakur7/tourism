@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :friendships do
       resource :acceptance , only: [:create, :destroy]
   end
-  resource :friends, only: [:show]
+  resources :friends, only: [:index]
   end
 
   
