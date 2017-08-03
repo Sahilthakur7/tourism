@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <%= form_tag(hotspots_path, method: :get) do%>
+                        <%= text_field_tag :search,params[:search],placeholder: "Search users"%>
+                        <%=submit_tag "Search",class: "btn"%>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</br>
+<h1 class="hotspots-header"><center>HOTSPOTS!</h1></center>
+
+    <div class="row">
+        <div class="col-sm-8 ">
+            <%= image_tag ("kerala.jpg"), class:"img-responsive img-cir"%>
+        </div>
+        <div class="col-sm-4">
+            The top hotspots in the country :-</br>
+            <% @hotspots.each do |hotspot|%>
+                <%= link_to hotspot.name ,"#"%>
+            <%end%>
+        </div>
+    </div>
+    </br>
+    <div>
+        <h3>Your spot on the site yet?</h3>
+        Add your own hotspot !
+
+        <div class="form-group">
+            <%= simple_form_for(@hotspot) do |f|%>
+                <%=f.input :name%>
+               Stars: <%=f.select :stars , [1,2,3,4,5]%></br>
+                <%=f.submit "Create", class: "btn btn-success"%>
+            <%end%>
+        </div>
+    </div>

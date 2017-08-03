@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730073351) do
+ActiveRecord::Schema.define(version: 20170803125731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 20170730073351) do
 
   add_index "hearts", ["photo_id"], name: "index_hearts_on_photo_id", using: :btree
   add_index "hearts", ["user_id"], name: "index_hearts_on_user_id", using: :btree
+
+  create_table "hotspots", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "stars"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "infos", force: :cascade do |t|
     t.text     "interests"
