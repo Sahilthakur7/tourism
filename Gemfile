@@ -22,6 +22,7 @@ gem 'simple_form'
 gem 'turbolinks'
 gem 'devise' , "~> 3.4.1"
 gem 'paperclip'
+gem 'ratyrate'
 
 source 'https://rails-assets.org' do
     gem 'rails-assets-tether' , '>=1.3.3'

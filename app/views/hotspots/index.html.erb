@@ -35,8 +35,8 @@
         <div class="form-group">
             <%= simple_form_for(@hotspot) do |f|%>
                 <%=f.input :name%>
-               Stars: <%=f.select :stars , [1,2,3,4,5]%></br>
                 <%=f.submit "Create", class: "btn btn-success"%>
+                
             <%end%>
         </div>
     </div>
