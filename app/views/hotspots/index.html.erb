@@ -23,7 +23,7 @@
         <div class="col-sm-4">
             The top hotspots in the country :-</br>
             <% @hotspots.each do |hotspot|%>
-                <%= link_to hotspot.name ,"#"%>
+                <%= link_to hotspot.name , hotspot_path(hotspot)%>,
             <%end%>
         </div>
     </div>

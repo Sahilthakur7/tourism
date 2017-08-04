@@ -1,5 +1,8 @@
 class HotspotsController < ApplicationController
     def show
+        @hotspot = Hotspot.find(params[:id])
+        @photo = Photo.new
+        @photos = Photo.order('created_at').where(hotspot_id: @hotspot.id)
     end
 
     def index
@@ -15,7 +18,7 @@ class HotspotsController < ApplicationController
     def create
         @hotspot = Hotspot.new(hotspot_params)
         if @hotspot.save
-        redirect_to root_path
+            redirect_to root_path
         else
             flash[:notice] = "The hotspot already exits"
         end

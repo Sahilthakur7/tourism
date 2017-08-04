@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   resources :friends, only: [:index]
   end
 
-  resources :hotspots
+  resources :hotspots do
+      resources :photos do
+          resources :comments
+      end
+  end
 
   
   # The priority is based upon order of creation: first created -> highest priority.

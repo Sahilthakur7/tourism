@@ -1,0 +1,32 @@
+<center><h2 ><%= @hotspot.name%></h2></center>
+<hr>
+
+<div class="col-md-6">
+    Have a photo of <%= @hotspot.name%> to share? Post it here!
+    <div>
+        <br>
+        <%= form_for [@hotspot,@photo] do |f|%>
+            <% 15.times do %>
+                &nbsp;
+            <%end%>
+            <%= f.file_field :pic%>
+    </div>
+    <div>
+        </br>
+        <% 15.times do %>
+            &nbsp;
+        <%end%>
+        <%= f.text_area :caption, placeholder: "Caption.."%>
+    </div>
+    <% 15.times do %>
+        &nbsp;
+    <%end%>
+    <%= button_tag type: 'submit',class: "btn btn-success",id: "register-button" do%>
+        <i class="fa fa-camera" aria-hidden="true"> Upload</i>
+    <%end%>
+<%end%>
+</div>
+<hr>
+<div class="posts-container">
+    <%= render 'photo'%>
+</div>

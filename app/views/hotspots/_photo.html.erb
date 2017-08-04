@@ -1,0 +1,56 @@
+
+
+<div class="posts-wrapper row">
+    <% @photos.each do |photo| %>
+        <div class="post">
+            <div class="post-head">
+                <div class="thumb-img"></div>
+                <div class="user-name">
+                    <%= link_to photo.user.name, user_path(photo.user) %>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <%= (Date.current - photo.created_at.to_date).to_i%>days ago
+                </div>
+            </div>
+            <div class="image center-block">
+                <%= image_tag photo.pic.url(:medium),class: 'img-responsive'%>
+            </div>
+            <div class="post-bottom">
+                <div class="caption">
+                    <%= photo.caption %>
+                </div>
+                <hr>
+                <% if photo.comments %>
+                    <% photo.comments.each do |comment| %>
+                        <div class="comment">
+                            <div class="user-name">
+                                <%=link_to comment.user.name,user_path(comment.user) %>: <%= comment.content%>
+                            </div>
+                            <% if comment.user == current_user %>
+                                <%= link_to hotspot_photo_comment_path(@hotspot,photo, comment), method: :delete, data: { confirm: "Are you sure?" } do%>
+                                    <span class="glyphicon glyphicon-remove delete-comment" aria-hidden="true"></span>
+                                <%end%>
+                            <% end %>
+                        </div>
+                    <% end %>
+                <% end %>
+                <div class="comment-like-form row">
+                    <div class="like-button col-sm-1">
+                        </button>
+                        </button>
+                    </div>
+                    <div class="comment-form col-sm-11">
+                        <%= form_for [@hotspot,photo,photo.comments.new] do |f| %>
+                            <center> <%= f.text_field :content, placeholder: 'Add a comment...' %></center>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+
