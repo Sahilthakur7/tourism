@@ -10,6 +10,10 @@ class HotspotsController < ApplicationController
 
         if params[:search]
             @hotspots = Hotspot.search(params[:search])
+            @hash = Gmaps4rails.build_markers(@hotspots) do |hotspot, marker|
+                marker.lat hotspot.latitude
+                marker.lng hotspot.longitude
+            end
         end
     end
 
@@ -27,7 +31,7 @@ class HotspotsController < ApplicationController
     private
 
     def hotspot_params
-        params.require(:hotspot).permit(:name,:stars)
+        params.require(:hotspot).permit(:name,:stars,:address)
     end
 
 

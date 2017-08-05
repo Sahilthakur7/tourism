@@ -17,6 +17,8 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
 //javascript for carousel
