@@ -10,8 +10,6 @@ class HotspotsController < ApplicationController
 
         if params[:search]
             @hotspots = Hotspot.search(params[:search])
-        else
-            @hotspots = Hotspot.all
         end
     end
 
@@ -21,6 +19,7 @@ class HotspotsController < ApplicationController
             redirect_to root_path
         else
             flash[:notice] = "The hotspot already exits"
+            redirect_to hotspots_path
         end
 
     end

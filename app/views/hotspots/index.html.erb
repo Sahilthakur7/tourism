@@ -21,9 +21,10 @@
             <%= image_tag ("kerala.jpg"), class:"img-responsive img-cir"%>
         </div>
         <div class="col-sm-4">
-            The top hotspots in the country :-</br>
-            <% @hotspots.each do |hotspot|%>
-                <%= link_to hotspot.name , hotspot_path(hotspot)%>,
+            <% if @hotspots%>
+                <% @hotspots.each do |hotspot|%>
+                    <h3> <%= link_to hotspot.name , hotspot_path(hotspot)%></h3>
+                <%end%>
             <%end%>
         </div>
     </div>
@@ -36,7 +37,7 @@
             <%= simple_form_for(@hotspot) do |f|%>
                 <%=f.input :name%>
                 <%=f.submit "Create", class: "btn btn-success"%>
-                
+
             <%end%>
         </div>
     </div>
