@@ -1,14 +1,21 @@
 class TravelsController < ApplicationController
-    before_action :set_user
     def index
+        if on_user_path
+        @user = User.find(params[:user_id])
         @travels = Travel.order('created_at').where(user_id: @user.id)
+        else
+            @hotspot = Hotspot.find(params[:hotspot_id])
+            @travels = Travel.order('created_at').where(hotspot_id: @hotspot.id)
+        end
     end
 
     def new
+        @user = User.find(params[:user_id])
         @travel = Travel.new
     end
 
     def create
+        @user = User.find(params[:user_id])
         @travel = Travel.new(travel_params)
         @travel.set_user(current_user)
         if @travel.save
@@ -21,6 +28,7 @@ class TravelsController < ApplicationController
     end
 
     def show
+        @user = User.find(params[:user_id])
         @travel = Travel.find(params[:id]) 
         @hotspot = Hotspot.find(@travel.hotspot_id)
         @comment = Comment.new
@@ -29,11 +37,12 @@ class TravelsController < ApplicationController
 
     private
 
-    def set_user
-        @user = User.find(params[:user_id])
-    end
 
     def travel_params
         params.require(:travel).permit(:featured_image,:title,:content,:hotspot_id)
+    end
+
+    def on_user_path
+        request.original_fullpath.include?("users")
     end
 end

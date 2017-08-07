@@ -8,7 +8,7 @@
 Longitude: <%= @hotspot.longitude%>
 Latitude: <%= @hotspot.latitude%>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   
-No. of travels: <%= @hotspot.travels.count%>
+No. of travels: <%= link_to @hotspot.travels.count , hotspot_travels_path(@hotspot)%>
 <%= rating_for @hotspot, 'stars'%>
 <%= rating_for @hotspot, 'stars', disable_after_rate: true, imdb_avg: true%>
 <hr>
