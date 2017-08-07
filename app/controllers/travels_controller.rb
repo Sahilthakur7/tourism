@@ -22,6 +22,7 @@ class TravelsController < ApplicationController
 
     def show
         @travel = Travel.find(params[:id]) 
+        @hotspot = Hotspot.find(@travel.hotspot_id)
         @comment = Comment.new
     end
 
@@ -33,6 +34,6 @@ class TravelsController < ApplicationController
     end
 
     def travel_params
-        params.require(:travel).permit(:featured_image,:title,:content)
+        params.require(:travel).permit(:featured_image,:title,:content,:hotspot_id)
     end
 end

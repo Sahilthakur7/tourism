@@ -1,8 +1,14 @@
 class HotspotsController < ApplicationController
     def show
+        @hotspots = Hotspot.where(id: params[:id])
         @hotspot = Hotspot.find(params[:id])
         @photo = Photo.new
         @photos = Photo.order('created_at').where(hotspot_id: @hotspot.id)
+
+        @hash = Gmaps4rails.build_markers(@hotspots) do |hotspot,marker|
+            marker.lat hotspot.latitude
+            marker.lng hotspot.longitude
+        end
     end
 
     def index

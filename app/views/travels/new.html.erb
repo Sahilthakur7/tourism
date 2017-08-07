@@ -1,7 +1,13 @@
 <%= simple_form_for([@user,@travel]) do |f|%>
     <%=f.input :title%>
     <%=f.input :content, rows: 10%>
-    <%=f.file_field :featured_image%>
+    Featured Photo:
+    <%=f.file_field :featured_image%></br></br>
+    Hotspot:
+    <%=f.collection_select(:hotspot_id, Hotspot.all, :id, :name)%></br></br>
     <%=f.submit "Share Travel!", class: "btn btn-success"%>
 <%end%>
 
+<div>
+    Can't find your hotspot in the list? Create your own! <%= link_to "Hotspots", hotspots_path%>
+    </div>
