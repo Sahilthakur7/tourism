@@ -73,7 +73,17 @@
     </br>
     <%unless current_user == @user %>
         <% unless is_friend?(@user)%>
-        <center><%=button_to "Add Friend", user_friendships_path(@user), method: :post, class: "btn btn-info" %></center>
-    <%end%>
+            <center><%=button_to "Add Friend", user_friendships_path(@user), method: :post, class: "btn btn-info" %></center>
+        <%end%>
     <%end%>
 </div>
+
+<% unless @user == current_user%>
+<div>
+    Want to rate <%= @user.name%>'s profile?
+    <%= form_for @user, :url => rate_user_path, method: :post do %>
+        <%=select_tag(:num,options_for_select([["1"],["2"],["3"],["4"],["5"]]))%>
+        <%=submit_tag "Rate"%>
+    <%end%>
+</div>
+<%end%>

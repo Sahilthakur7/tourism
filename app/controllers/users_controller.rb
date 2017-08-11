@@ -13,6 +13,20 @@ class UsersController < ApplicationController
 
     end
 
+    def rate
+        @user = User.find(params[:id])
+        @num = params[:num].to_i
+        if @user.stars
+        @user.stars += @num
+        else
+            @user.stars = 0
+            @user.stars += @num
+        end
+        @user.save
+        redirect_to @user
+    end
+
+
 
 
     private

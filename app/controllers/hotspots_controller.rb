@@ -13,6 +13,8 @@ class HotspotsController < ApplicationController
 
     def index
         @hotspot = Hotspot.new
+        @hotspotgraphs = Hotspot.all
+
 
         if params[:search]
             @hotspots = Hotspot.search(params[:search])

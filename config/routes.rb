@@ -19,7 +19,13 @@ Rails.application.routes.draw do
             resource :acceptance , only: [:create, :destroy]
         end
         resources :friends, only: [:index]
+
+        member do
+            post "rate"
+        end
+
     end
+
 
     resources :hotspots do
         resources :photos do

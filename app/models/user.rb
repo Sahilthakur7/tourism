@@ -19,5 +19,9 @@ class User < ActiveRecord::Base
         where("name LIKE ? or name LIKE ?", "%#{search}%", "%#{search}%")
     end
 
+    def friends
+        Friendship.where("friend1_id = ? OR friend2_id = ?",self.id,self.id)
+    end
+
 
 end

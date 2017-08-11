@@ -9,7 +9,7 @@
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                     <%= form_tag(hotspots_path, method: :get) do%>
-                        <%= text_field_tag :search,params[:search],placeholder: "Search users"%>
+                        <%= text_field_tag :search,params[:search],placeholder: "Search hotspots"%>
                         <%=submit_tag "Search",class: "btn"%>
                     <%end%>
                 </div>
@@ -62,5 +62,4 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
 });
     </script>
-
 
