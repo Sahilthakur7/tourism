@@ -39,6 +39,10 @@ module ApplicationHelper
         @friendship = Friendship.where("friend1_id = ? AND friend2_id = ? OR friend1_id = ? AND friend2_id = ?",current_user.id,user.id,user.id,current_user.id).first
         @friendship.friend2
     end
+
+    def on_hotspots_path
+        request.original_fullpath.include?("hotspots")
+    end
         
 
 end

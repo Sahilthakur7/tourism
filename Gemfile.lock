@@ -48,6 +48,7 @@ GEM
       sass (>= 3.4.19)
     builder (3.2.3)
     byebug (9.0.6)
+    chartkick (2.2.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -188,6 +189,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap
   byebug
+  chartkick
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
   font-awesome-rails

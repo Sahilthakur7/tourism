@@ -1,5 +1,5 @@
 <hr>
-<center><h1 class="travhead"><%=@travel.title%>(<%=link_to @hotspot.name, hotspot_path(@hotspot)%>)<h1></center>
+<center><h1 class="travhead"><%=@travel.title%>(<%= link_to @travel.hotspot.name, hotspot_path(@travel.hotspot)%>)<h1></center>
 <hr>
 
 <%= @travel.content %>

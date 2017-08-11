@@ -16,6 +16,8 @@
 //= require ratyrate
 //= require turbolinks
 //= require tether
+//= require highcharts
+//= require chartkick
 //= require bootstrap
 //= require underscore
 //= require gmaps/google

@@ -25,6 +25,7 @@ gem 'paperclip'
 gem 'ratyrate'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'chartkick'
 
 source 'https://rails-assets.org' do
     gem 'rails-assets-tether' , '>=1.3.3'
